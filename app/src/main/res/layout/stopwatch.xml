@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg">
+
+    <FrameLayout
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:background="@drawable/cricular"
+        android:clipToOutline="true"
+        android:id="@+id/swirlyAnimation"
+        android:elevation="4dp"
+        android:padding="2dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:outlineProvider="background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="wrap_content"
+            android:id="@+id/animation"
+            android:layout_height="wrap_content"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/stopwatch">
+
+        </com.airbnb.lottie.LottieAnimationView>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Timer Display"
+        android:textColor="@color/white"
+        android:background="@drawable/grandiend_and_rb"
+        android:padding="10dp"
+        android:layout_marginTop="50dp"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/swirlyAnimation"
+        app:layout_constraintStart_toStartOf="@+id/swirlyAnimation"
+        app:layout_constraintTop_toBottomOf="@+id/swirlyAnimation" />
+
+    <TextView
+        android:id="@+id/status"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/grandiend_and_rb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:textColor="@color/white"
+        android:layout_marginTop="50dp"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/display"
+        app:layout_constraintStart_toStartOf="@+id/display"
+        app:layout_constraintTop_toBottomOf="@+id/display" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/grandiend_and_rb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/status">
+
+        <ImageButton
+            android:id="@+id/playBt"
+            android:layout_width="150px"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/playbt" />
+
+        <ImageButton
+            android:id="@+id/resetbt"
+            android:layout_width="150px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/resetbt" />
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/lapScrollView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:padding="8dp"
+        android:scrollbars="horizontal"
+        android:background="@drawable/grandiend_and_rb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:id="@+id/lapContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lapview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="10dp"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
